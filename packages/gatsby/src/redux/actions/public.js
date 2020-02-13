@@ -364,9 +364,11 @@ ${reservedFields.map(f => `  * "${f}"`).join(`\n`)}
     internalComponentName = `Component${pascalCase(page.path)}`
   }
 
+  const truncatedPath = page.path.slice(0, 100)
+
   const internalPage: Page = {
     internalComponentName,
-    path: page.path,
+    path: truncatedPath,
     matchPath: page.matchPath,
     component: page.component,
     componentChunkName: generateComponentChunkName(page.component),
